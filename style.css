@@ -1,0 +1,86 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: darksalmon;
+}
+
+/* header */
+.heading {
+    text-align: center;
+    font-size: 45px;
+
+    animation-name: hue;
+    animation-duration: 15s;
+    animation-iteration-count: infinite;
+}
+
+/* main */
+.container {
+    display: flex;
+    width: 30%;
+    height: 80vh;
+    justify-content: space-evenly;
+    align-content: space-evenly;
+    flex-wrap: wrap;
+    margin: 0 auto;
+}
+
+.box {
+    width: 150px;
+    height: 150px;
+    border: 10px solid black;
+    margin: 1%;
+    border-radius: 35px;
+}
+
+.box:active {
+    box-shadow: 3px 0px 23px yellow, 0px 3px 23px yellow, -3px 0px 23px yellow, 0px -3px 23px yellow;
+
+}
+
+.activate {
+    box-shadow: 3px 0px 23px yellow, 0px 3px 23px yellow, -3px 0px 23px yellow, 0px -3px 23px yellow;
+
+}
+
+#red {
+    background-color: crimson;
+}
+
+#green {
+    background-color: rgb(0, 255, 4);
+}
+
+#yellow {
+    background-color: yellow;
+}
+
+#blue {
+    background-color: dodgerblue;
+}
+
+@keyframes hue {
+    0% {
+        color: dodgerblue;
+    }
+
+    25% {
+        color: crimson;
+    }
+
+    50% {
+        color: rgb(0, 255, 4);
+    }
+
+    75% {
+        color: yellow;
+    }
+
+    100% {
+        color: dodgerblue;
+    }
+}
