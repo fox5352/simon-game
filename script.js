@@ -37,6 +37,26 @@ $(document).ready(() => {
         displayPattern(pattern);
     }
 
+    // displays/plays the pattern/audio in order then starts the listeners for clickCounter
+    function displayPattern(pattern) {
+        let i = 0;
+        for (let index = 0; index < pattern.length; index++) {
+            let id = `#${pattern[index]}`;
+            let delay = Number(`${index}000`);
+
+            setTimeout(() => {
+                playAudio(pattern[index]);
+                $(id).addClass("activate")
+                setTimeout(() => {
+                    $(id).removeClass("activate");
+                }, 600);
+
+            }, delay);
+        }
+        console.log(pattern);
+        $(".box").bind("click", event => { clickCounter(event); });
+    }
+
     // takes the audio files name and plays it
     function playAudio(name) {
         console.log(name);
@@ -45,24 +65,6 @@ $(document).ready(() => {
         return "";
     }
 
-    // displays/plays the pattern/audio in order then starts the listeners for clickCounter
-    function displayPattern(pattern) {
-        let i = 0;
-        for (let index = 0; index < pattern.length; index++) {
-            let id = `#${pattern[index]}`;
-            let delay = `${index}000`;
-            setTimeout(() => {
-                $(id).addClass("activate");
-                playAudio(pattern[index]);
-                setTimeout(() => {
-                    $(id).removeClass("activate");
-                }, 500);
-
-            }, delay);
-        }
-        console.log(pattern);
-        $(".box").bind("click", event => { clickCounter(event); });
-    }
 
     // check if the click is valid then moves to the next
     function clickCounter(event) {
